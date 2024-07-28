@@ -1,0 +1,968 @@
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : Trade
+ Source Server Type    : MongoDB
+ Source Server Version : 70001 (7.0.1)
+ Source Host           : localhost:27017
+ Source Schema         : Trade
+
+ Target Server Type    : MongoDB
+ Target Server Version : 70001 (7.0.1)
+ File Encoding         : 65001
+
+ Date: 29/07/2024 01:27:56
+*/
+
+
+// ----------------------------
+// Collection structure for admins
+// ----------------------------
+db.getCollection("admins").drop();
+db.createCollection("admins");
+db.getCollection("admins").createIndex({
+    username: NumberInt("1")
+}, {
+    name: "username_1",
+    background: true,
+    unique: true
+});
+
+// ----------------------------
+// Documents of admins
+// ----------------------------
+db.getCollection("admins").insert([ {
+    _id: ObjectId("66921f76f1531324ebc2923b"),
+    username: "Trung Phong Admin",
+    password: "$2a$10$rp5CTODniG9EnMn47Pkv2uoJVB/OPvkw5UFQQGkLayTMcHD5xaNL.",
+    __v: NumberInt("0")
+} ]);
+db.getCollection("admins").insert([ {
+    _id: ObjectId("66922bcb44a55ea75e3f1205"),
+    username: "Trong",
+    password: "$2a$10$zS2x7JjbUvcay3ZLbZKU.utSX9wxc8B2NUTVpyTdac6.qau7H2PTW",
+    __v: NumberInt("0")
+} ]);
+db.getCollection("admins").insert([ {
+    _id: ObjectId("669a61d63f2cbdefb1e75640"),
+    username: "Phong admin",
+    password: "$2a$10$2bAyMgegTg0bK4rSyj/SfO2aa6EvvEboh143V85umNAU.hViwWWJK",
+    __v: NumberInt("0")
+} ]);
+
+// ----------------------------
+// Collection structure for banks
+// ----------------------------
+db.getCollection("banks").drop();
+db.createCollection("banks");
+
+// ----------------------------
+// Documents of banks
+// ----------------------------
+db.getCollection("banks").insert([ {
+    _id: ObjectId("6692b7de5957f425ab8cb45a"),
+    name: "MBB",
+    icon: "",
+    accountNumber: "0020184431007",
+    userName: "NGUYEN TRUNG PHONG",
+    status: NumberInt("1"),
+    timeCreate: ISODate("2024-07-13T17:22:38.103Z"),
+    timeUpdate: ISODate("2024-07-16T15:03:23.468Z"),
+    __v: NumberInt("0"),
+    bankBalance: NumberInt("64000000"),
+    bin: NumberInt("970422")
+} ]);
+db.getCollection("banks").insert([ {
+    _id: ObjectId("6692b7f45957f425ab8cb45d"),
+    name: "Vietcombank",
+    icon: "",
+    accountNumber: "0020184431007",
+    userName: "NGUYEN TRUNG PHONG",
+    status: NumberInt("1"),
+    timeCreate: ISODate("2024-07-13T17:23:00.315Z"),
+    timeUpdate: ISODate("2024-07-13T17:23:00.316Z"),
+    __v: NumberInt("0"),
+    bankBalance: NumberInt("64000000")
+} ]);
+
+// ----------------------------
+// Collection structure for coins
+// ----------------------------
+db.getCollection("coins").drop();
+db.createCollection("coins");
+
+// ----------------------------
+// Documents of coins
+// ----------------------------
+db.getCollection("coins").insert([ {
+    _id: ObjectId("668f92d1bc0e439756637785"),
+    name: "Ethereum",
+    moneyBuy: NumberInt("24000"),
+    moneySell: NumberInt("250000"),
+    status: NumberInt("3"),
+    icon: "1721067766670-Cjdowner-Cryptocurrency-Flat-Ethereum-ETH.512.png",
+    serviceCharge: NumberInt("1000"),
+    __v: NumberInt("0"),
+    quantity: NumberInt("4"),
+    unit: "ETH",
+    serviceChargeBuy: NumberInt("456"),
+    serviceChargeSell: NumberInt("123"),
+    statusBuy: NumberInt("1"),
+    statusSell: NumberInt("1"),
+    min: NumberInt("1"),
+    walletAddress: "ethereum address",
+    qrCoin: "1721068756842-images.png"
+} ]);
+db.getCollection("coins").insert([ {
+    _id: ObjectId("66923bd6a241fbdd4aa3d209"),
+    name: "Bitcoin 1",
+    unit: "BTC",
+    quantity: NumberInt("2"),
+    icon: "1721067694265-Mua-BNB-bang-the-ngan-hang-VND.png",
+    moneySell: NumberInt("23000"),
+    serviceChargeSell: NumberInt("1000"),
+    statusSell: NumberInt("1"),
+    moneyBuy: NumberInt("22000"),
+    serviceChargeBuy: NumberInt("1300"),
+    statusBuy: NumberInt("1"),
+    __v: NumberInt("0"),
+    min: 0.001,
+    walletAddress: "bitcoin 1 address"
+} ]);
+db.getCollection("coins").insert([ {
+    _id: ObjectId("66923c36a241fbdd4aa3d20d"),
+    name: "Bitcoin 2",
+    unit: "BTC",
+    quantity: NumberInt("2"),
+    icon: "1721067810361-download.png",
+    moneySell: NumberInt("24000"),
+    serviceChargeSell: NumberInt("1200"),
+    statusSell: NumberInt("1"),
+    moneyBuy: NumberInt("22000"),
+    serviceChargeBuy: NumberInt("1100"),
+    statusBuy: NumberInt("1"),
+    __v: NumberInt("0"),
+    min: 0.001,
+    walletAddress: "bitcoin 2 address"
+} ]);
+db.getCollection("coins").insert([ {
+    _id: ObjectId("66924030a241fbdd4aa3d227"),
+    name: "Bitcoin 3",
+    unit: "BTC",
+    quantity: NumberInt("5"),
+    icon: "1721067821406-images.png",
+    moneySell: NumberInt("56000"),
+    serviceChargeSell: NumberInt("1200"),
+    statusSell: NumberInt("1"),
+    moneyBuy: NumberInt("45000"),
+    serviceChargeBuy: NumberInt("1300"),
+    statusBuy: NumberInt("1"),
+    __v: NumberInt("0"),
+    min: 0.00001,
+    walletAddress: "bitcoin 3 address"
+} ]);
+
+// ----------------------------
+// Collection structure for comments
+// ----------------------------
+db.getCollection("comments").drop();
+db.createCollection("comments");
+
+// ----------------------------
+// Documents of comments
+// ----------------------------
+db.getCollection("comments").insert([ {
+    _id: ObjectId("669d189a9f82d81aceaa4f71"),
+    userName: "Nguyễn Trung Phong",
+    idUser: "",
+    comment: "Giao dịch nhanh gọn, giao diện dễ sử dụng",
+    timeCreate: ISODate("2024-07-21T14:18:02.204Z"),
+    timeUpdate: ISODate("2024-07-21T14:18:46.89Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("comments").insert([ {
+    _id: ObjectId("669d18b09f82d81aceaa4f76"),
+    userName: "Trung Phong",
+    idUser: "",
+    comment: "Đánh giá 2",
+    timeCreate: ISODate("2024-07-21T14:18:24.061Z"),
+    timeUpdate: ISODate("2024-07-21T14:18:24.061Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("comments").insert([ {
+    _id: ObjectId("669d24289f82d81aceaa4f99"),
+    userName: "Phong",
+    idUser: "",
+    comment: "Đã giao dịch vài lần, oke lắm",
+    timeCreate: ISODate("2024-07-21T15:07:20.507Z"),
+    timeUpdate: ISODate("2024-07-21T15:07:20.508Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("comments").insert([ {
+    _id: ObjectId("669d243a9f82d81aceaa4f9c"),
+    userName: "Phong 1",
+    idUser: "",
+    comment: "ddanhs gia 1",
+    timeCreate: ISODate("2024-07-21T15:07:38.767Z"),
+    timeUpdate: ISODate("2024-07-21T15:07:38.768Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("comments").insert([ {
+    _id: ObjectId("669d24439f82d81aceaa4f9f"),
+    userName: "Phong 2",
+    idUser: "",
+    comment: "danh gia 2",
+    timeCreate: ISODate("2024-07-21T15:07:47.053Z"),
+    timeUpdate: ISODate("2024-07-21T15:07:47.053Z"),
+    __v: NumberInt("0")
+} ]);
+
+// ----------------------------
+// Collection structure for lists
+// ----------------------------
+db.getCollection("lists").drop();
+db.createCollection("lists");
+
+// ----------------------------
+// Documents of lists
+// ----------------------------
+db.getCollection("lists").insert([ {
+    _id: ObjectId("66954079afc0773722a7f11a"),
+    idCoin: "668f92d1bc0e439756637785",
+    nameCoin: "Ethereum",
+    unitCoin: "ETH",
+    quantity: NumberInt("2"),
+    walletAddress: "adsasdfasfasf",
+    userName: "",
+    accountNumber: "0020184431007",
+    bankName: "MBB",
+    bankAccount: "NGUYEN TRUNG PHONG",
+    moneyTrade: NumberInt("48000"),
+    transactionFees: NumberInt("456"),
+    oderStatus: NumberInt("1"),
+    tradeStatus: NumberInt("3"),
+    tradingCode: "QLB7LJCD",
+    exchangeRate: "24000",
+    timeCreate: ISODate("2024-07-15T15:30:01.061Z"),
+    timeUpdate: ISODate("2024-07-15T15:30:01.081Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("lists").insert([ {
+    _id: ObjectId("6695451d102246836efa946c"),
+    idCoin: "66923bd6a241fbdd4aa3d209",
+    nameCoin: "Bitcoin 1",
+    unitCoin: "BTC",
+    quantity: NumberInt("2"),
+    walletAddress: "",
+    userName: "",
+    accountNumber: "0020184431007",
+    bankName: "21",
+    bankAccount: "NGUYEN TRUNG PHONG",
+    moneyTrade: NumberInt("46000"),
+    transactionFees: NumberInt("1000"),
+    oderStatus: NumberInt("2"),
+    tradeStatus: NumberInt("3"),
+    tradingCode: "IFZK0QQ8",
+    exchangeRate: "23000",
+    timeCreate: ISODate("2024-07-15T15:49:49.13Z"),
+    timeUpdate: ISODate("2024-07-15T15:49:49.135Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("lists").insert([ {
+    _id: ObjectId("669548e822c2fb5e6f1c0723"),
+    idCoin: "66923c36a241fbdd4aa3d20d",
+    nameCoin: "Bitcoin 2",
+    unitCoin: "BTC",
+    quantity: NumberInt("10"),
+    walletAddress: "bitcoin 2 address",
+    userName: "",
+    accountNumber: "0020184431007",
+    bankName: "21",
+    bankAccount: "NGUYEN TRUNG PHONG",
+    moneyTrade: NumberInt("240000"),
+    transactionFees: NumberInt("1200"),
+    oderStatus: NumberInt("2"),
+    tradeStatus: NumberInt("3"),
+    tradingCode: "ZJT5NO51",
+    exchangeRate: "24000",
+    timeCreate: ISODate("2024-07-15T16:06:00.643Z"),
+    timeUpdate: ISODate("2024-07-15T16:44:05.402Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("lists").insert([ {
+    _id: ObjectId("66956c11d95c40b41c85c955"),
+    idCoin: "66923bd6a241fbdd4aa3d209",
+    nameCoin: "Bitcoin 1",
+    unitCoin: "BTC",
+    quantity: NumberInt("1"),
+    walletAddress: "bitcoin 1 address",
+    userName: "",
+    accountNumber: "0020184431007",
+    bankName: "21",
+    bankAccount: "NGUYEN TRUNG PHONG",
+    moneyTrade: NumberInt("23000"),
+    transactionFees: NumberInt("1000"),
+    oderStatus: NumberInt("2"),
+    tradeStatus: NumberInt("3"),
+    tradingCode: "UFWY5280",
+    exchangeRate: "23000",
+    timeCreate: ISODate("2024-07-15T18:36:01.844Z"),
+    timeUpdate: ISODate("2024-07-15T18:36:01.854Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("lists").insert([ {
+    _id: ObjectId("66956c8bd95c40b41c85c95c"),
+    idCoin: "668f92d1bc0e439756637785",
+    nameCoin: "Ethereum",
+    unitCoin: "ETH",
+    quantity: 0.001,
+    walletAddress: "ethereum address",
+    qrCoin: "1721068427566-Cjdowner-Cryptocurrency-Flat-Ethereum-ETH.512.png",
+    userName: "",
+    accountNumber: "0020184431007",
+    bankName: "21",
+    bankAccount: "NGUYEN TRUNG PHONG",
+    moneyTrade: NumberInt("250000"),
+    transactionFees: NumberInt("123"),
+    oderStatus: NumberInt("2"),
+    tradeStatus: NumberInt("3"),
+    tradingCode: "CZIYESAC",
+    exchangeRate: "250000000",
+    timeCreate: ISODate("2024-07-15T18:38:03.487Z"),
+    timeUpdate: ISODate("2024-07-15T18:38:03.491Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("lists").insert([ {
+    _id: ObjectId("66956d01d95c40b41c85c965"),
+    idCoin: "668f92d1bc0e439756637785",
+    nameCoin: "Ethereum",
+    unitCoin: "ETH",
+    quantity: NumberInt("1"),
+    walletAddress: "dsfgsdfgsdg",
+    qrCoin: "",
+    userName: "",
+    accountNumber: "0020184431007",
+    bankName: "MBB",
+    bankAccount: "NGUYEN TRUNG PHONG",
+    moneyTrade: NumberInt("24000"),
+    transactionFees: NumberInt("456"),
+    oderStatus: NumberInt("1"),
+    tradeStatus: NumberInt("3"),
+    tradingCode: "I8I11ZHV",
+    exchangeRate: "24000",
+    timeCreate: ISODate("2024-07-15T18:40:01.573Z"),
+    timeUpdate: ISODate("2024-07-15T18:40:01.576Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("lists").insert([ {
+    _id: ObjectId("66956d36d95c40b41c85c969"),
+    idCoin: "668f92d1bc0e439756637785",
+    nameCoin: "Ethereum",
+    unitCoin: "ETH",
+    quantity: 0.001,
+    walletAddress: "ethereum address",
+    qrCoin: "1721068756842-images.png",
+    userName: "",
+    accountNumber: "0020184431007",
+    bankName: "21",
+    bankAccount: "NGUYEN TRUNG PHONG",
+    moneyTrade: NumberInt("250000"),
+    transactionFees: NumberInt("123"),
+    oderStatus: NumberInt("2"),
+    tradeStatus: NumberInt("3"),
+    tradingCode: "JOW16JH0",
+    exchangeRate: "250000000",
+    timeCreate: ISODate("2024-07-15T18:40:54.039Z"),
+    timeUpdate: ISODate("2024-07-15T18:40:54.042Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("lists").insert([ {
+    _id: ObjectId("66967ef62be873077e413425"),
+    idCoin: "668f92d1bc0e439756637785",
+    nameCoin: "Ethereum",
+    unitCoin: "ETH",
+    quantity: NumberInt("1"),
+    walletAddress: "sdgfsdsdfg",
+    qrCoin: "",
+    userName: "",
+    accountNumber: "0020184431007",
+    bankName: "MBB",
+    bankAccount: "NGUYEN TRUNG PHONG",
+    moneyTrade: NumberInt("24000"),
+    transactionFees: NumberInt("456"),
+    oderStatus: NumberInt("1"),
+    tradeStatus: NumberInt("3"),
+    tradingCode: "5KFA9SM2",
+    exchangeRate: "24000",
+    timeCreate: ISODate("2024-07-16T14:08:54.72Z"),
+    timeUpdate: ISODate("2024-07-16T14:08:54.729Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("lists").insert([ {
+    _id: ObjectId("66968f69e03bb9a6d7a48803"),
+    idCoin: "668f92d1bc0e439756637785",
+    nameCoin: "Ethereum",
+    unitCoin: "ETH",
+    quantity: NumberInt("1"),
+    walletAddress: "sddsfsdfasfd",
+    qrCoin: "",
+    userName: "",
+    accountNumber: "0020184431007",
+    bankName: "MBB",
+    bankAccount: "NGUYEN TRUNG PHONG",
+    moneyTrade: NumberInt("24000"),
+    transactionFees: NumberInt("456"),
+    oderStatus: NumberInt("1"),
+    tradeStatus: NumberInt("3"),
+    tradingCode: "VIYKXFWY",
+    exchangeRate: "24000",
+    timeCreate: ISODate("2024-07-16T15:19:05.611Z"),
+    timeUpdate: ISODate("2024-07-16T15:19:05.622Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("lists").insert([ {
+    _id: ObjectId("66968fa5e03bb9a6d7a4880c"),
+    idCoin: "668f92d1bc0e439756637785",
+    nameCoin: "Ethereum",
+    unitCoin: "ETH",
+    quantity: NumberInt("1"),
+    walletAddress: "asdfasfasdfas",
+    qrCoin: "",
+    userName: "",
+    accountNumber: "0020184431007",
+    bankName: "MBB",
+    bankAccount: "NGUYEN TRUNG PHONG",
+    moneyTrade: NumberInt("24000"),
+    transactionFees: NumberInt("456"),
+    oderStatus: NumberInt("1"),
+    tradeStatus: NumberInt("1"),
+    tradingCode: "IHZCKOWH",
+    exchangeRate: "24000",
+    timeCreate: ISODate("2024-07-16T15:20:05.195Z"),
+    timeUpdate: ISODate("2024-07-19T13:03:21.619Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("lists").insert([ {
+    _id: ObjectId("6696906f61218cce4bed14c2"),
+    idCoin: "66923bd6a241fbdd4aa3d209",
+    nameCoin: "Bitcoin 1",
+    unitCoin: "BTC",
+    quantity: NumberInt("1"),
+    walletAddress: "asdfasdfasdf",
+    qrCoin: "",
+    userName: "",
+    accountNumber: "0020184431007",
+    bankName: "MBB",
+    binBank: NumberInt("970422"),
+    bankAccount: "NGUYEN TRUNG PHONG",
+    moneyTrade: NumberInt("22000"),
+    transactionFees: NumberInt("1300"),
+    oderStatus: NumberInt("1"),
+    tradeStatus: NumberInt("3"),
+    tradingCode: "YHRO2F07",
+    exchangeRate: "22000",
+    timeCreate: ISODate("2024-07-16T15:23:27.665Z"),
+    timeUpdate: ISODate("2024-07-16T15:23:27.674Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("lists").insert([ {
+    _id: ObjectId("669695acc36f5829cf4061e4"),
+    idCoin: "668f92d1bc0e439756637785",
+    nameCoin: "Ethereum",
+    unitCoin: "ETH",
+    quantity: NumberInt("2"),
+    walletAddress: "ádasfdasfd",
+    qrCoin: "",
+    userName: "",
+    accountNumber: "0020184431007",
+    bankName: "MBB",
+    binBank: NumberInt("970422"),
+    bankAccount: "NGUYEN TRUNG PHONG",
+    moneyTrade: NumberInt("48000"),
+    transactionFees: NumberInt("456"),
+    oderStatus: NumberInt("1"),
+    tradeStatus: NumberInt("2"),
+    tradingCode: "JA46E77C",
+    exchangeRate: "24000",
+    timeCreate: ISODate("2024-07-16T15:45:48.78Z"),
+    timeUpdate: ISODate("2024-07-16T15:46:48.795Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("lists").insert([ {
+    _id: ObjectId("669697182e7e7d0e1d6d7d3b"),
+    idCoin: "668f92d1bc0e439756637785",
+    nameCoin: "Ethereum",
+    unitCoin: "ETH",
+    quantity: NumberInt("4"),
+    walletAddress: "sdfasfdasfd",
+    qrCoin: "",
+    userName: "",
+    accountNumber: "0020184431007",
+    bankName: "MBB",
+    binBank: NumberInt("970422"),
+    bankAccount: "NGUYEN TRUNG PHONG",
+    moneyTrade: NumberInt("96000"),
+    transactionFees: NumberInt("456"),
+    oderStatus: NumberInt("1"),
+    tradeStatus: NumberInt("2"),
+    tradingCode: "TW6GHSUB",
+    exchangeRate: "24000",
+    timeCreate: ISODate("2024-07-16T15:51:52.764Z"),
+    timeUpdate: ISODate("2024-07-16T15:52:22.784Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("lists").insert([ {
+    _id: ObjectId("669697ee2e7e7d0e1d6d7d47"),
+    idCoin: "668f92d1bc0e439756637785",
+    nameCoin: "Ethereum",
+    unitCoin: "ETH",
+    quantity: NumberInt("1"),
+    walletAddress: "sdfsdfsdf",
+    qrCoin: "",
+    userName: "",
+    accountNumber: "0020184431007",
+    bankName: "MBB",
+    binBank: NumberInt("970422"),
+    bankAccount: "NGUYEN TRUNG PHONG",
+    moneyTrade: NumberInt("24000"),
+    transactionFees: NumberInt("456"),
+    oderStatus: NumberInt("1"),
+    tradeStatus: NumberInt("2"),
+    tradingCode: "V7HISMKP",
+    exchangeRate: "24000",
+    timeCreate: ISODate("2024-07-16T15:55:26.613Z"),
+    timeUpdate: ISODate("2024-07-16T15:55:56.636Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("lists").insert([ {
+    _id: ObjectId("66969a4371b7c8cec6f51377"),
+    idCoin: "668f92d1bc0e439756637785",
+    nameCoin: "Ethereum",
+    unitCoin: "ETH",
+    quantity: NumberInt("1"),
+    walletAddress: "xzmvnzmsdfiu",
+    qrCoin: "",
+    userName: "",
+    accountNumber: "0020184431007",
+    bankName: "MBB",
+    binBank: NumberInt("970422"),
+    bankAccount: "NGUYEN TRUNG PHONG",
+    moneyTrade: NumberInt("24000"),
+    transactionFees: NumberInt("456"),
+    oderStatus: NumberInt("1"),
+    tradeStatus: NumberInt("2"),
+    tradingCode: "QCPE9MY4",
+    exchangeRate: "24000",
+    timeCreate: ISODate("2024-07-16T16:05:23.11Z"),
+    timeUpdate: ISODate("2024-07-16T16:05:26.139Z"),
+    timeEnd: ISODate("2024-07-16T16:15:23.113Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("lists").insert([ {
+    _id: ObjectId("66969b2b067d15f34e943521"),
+    idCoin: "668f92d1bc0e439756637785",
+    nameCoin: "Ethereum",
+    unitCoin: "ETH",
+    quantity: NumberInt("1"),
+    walletAddress: "ấdfasdfasfasfd",
+    qrCoin: "",
+    userName: "",
+    accountNumber: "0020184431007",
+    bankName: "MBB",
+    binBank: NumberInt("970422"),
+    bankAccount: "NGUYEN TRUNG PHONG",
+    moneyTrade: NumberInt("24000"),
+    transactionFees: NumberInt("456"),
+    oderStatus: NumberInt("1"),
+    tradeStatus: NumberInt("1"),
+    tradingCode: "52LQ8OZ2",
+    exchangeRate: "24000",
+    timeCreate: ISODate("2024-07-16T16:09:15.657Z"),
+    timeUpdate: ISODate("2024-07-16T16:09:27.864Z"),
+    timeEnd: ISODate("2024-07-16T16:19:15.661Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("lists").insert([ {
+    _id: ObjectId("669951546d9b96676287962c"),
+    idCoin: "668f92d1bc0e439756637785",
+    nameCoin: "Ethereum",
+    unitCoin: "ETH",
+    quantity: NumberInt("4"),
+    walletAddress: "sdfsdfgsdf",
+    qrCoin: "",
+    userName: "",
+    accountNumber: "0020184431007",
+    bankName: "MBB",
+    binBank: NumberInt("970422"),
+    bankAccount: "NGUYEN TRUNG PHONG",
+    moneyTrade: NumberInt("96000"),
+    transactionFees: NumberInt("456"),
+    oderStatus: NumberInt("2"),
+    tradeStatus: NumberInt("2"),
+    tradingCode: "GW4NZG9Z",
+    exchangeRate: "24000",
+    timeCreate: ISODate("2024-07-18T17:31:00.808Z"),
+    timeUpdate: ISODate("2024-07-20T15:33:19.252Z"),
+    timeEnd: ISODate("2024-07-18T17:41:00.825Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("lists").insert([ {
+    _id: ObjectId("669bdf4778595ccbb8c20a78"),
+    idCoin: "668f92d1bc0e439756637785",
+    nameCoin: "Ethereum",
+    unitCoin: "ETH",
+    quantity: NumberInt("4"),
+    walletAddress: "klsafjdl;asfjdl;",
+    qrCoin: "",
+    userName: "",
+    accountNumber: "0020184431007",
+    bankName: "MBB",
+    binBank: NumberInt("970422"),
+    bankAccount: "NGUYEN TRUNG PHONG",
+    moneyTrade: NumberInt("96000"),
+    transactionFees: NumberInt("456"),
+    oderStatus: NumberInt("2"),
+    tradeStatus: NumberInt("3"),
+    tradingCode: "GRF9392W",
+    exchangeRate: "24000",
+    timeCreate: ISODate("2024-07-20T16:01:12.008Z"),
+    timeUpdate: ISODate("2024-07-26T17:53:29.323Z"),
+    timeEnd: ISODate("2024-07-20T16:11:12.014Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("lists").insert([ {
+    _id: ObjectId("66a3dfc983a4c51c00789edb"),
+    idCoin: "66923bd6a241fbdd4aa3d209",
+    nameCoin: "Bitcoin 1",
+    unitCoin: "BTC",
+    quantity: NumberInt("1"),
+    walletAddress: "sdasdfadsfjlasdfhajkfgkj",
+    qrCoin: "",
+    userName: "",
+    accountNumber: "0020184431007",
+    bankName: "MBB",
+    binBank: NumberInt("970422"),
+    bankAccount: "NGUYEN TRUNG PHONG",
+    moneyTrade: NumberInt("22000"),
+    transactionFees: NumberInt("1300"),
+    oderStatus: NumberInt("1"),
+    tradeStatus: NumberInt("3"),
+    tradingCode: "CBNENSB3",
+    exchangeRate: "22000",
+    timeCreate: ISODate("2024-07-26T17:41:29.611Z"),
+    timeUpdate: ISODate("2024-07-26T17:44:19.661Z"),
+    timeEnd: ISODate("2024-07-26T17:51:29.619Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("lists").insert([ {
+    _id: ObjectId("66a4d26e4fd9b615a1e77962"),
+    idCoin: "668f92d1bc0e439756637785",
+    nameCoin: "Ethereum",
+    unitCoin: "ETH",
+    quantity: NumberInt("1"),
+    walletAddress: "fdssdgsgf",
+    qrCoin: "",
+    userName: "",
+    accountNumber: "0020184431007",
+    bankName: "MBB",
+    binBank: NumberInt("970422"),
+    bankAccount: "NGUYEN TRUNG PHONG",
+    moneyTrade: NumberInt("24000"),
+    transactionFees: NumberInt("456"),
+    oderStatus: NumberInt("1"),
+    tradeStatus: NumberInt("3"),
+    tradingCode: "CWK0A3GSTU4",
+    exchangeRate: "24000",
+    timeCreate: ISODate("2024-07-27T10:56:46.817Z"),
+    timeUpdate: ISODate("2024-07-27T10:56:46.836Z"),
+    timeEnd: ISODate("2024-07-27T11:06:46.833Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("lists").insert([ {
+    _id: ObjectId("66a4d2c4256f909608f6b8d8"),
+    idCoin: "668f92d1bc0e439756637785",
+    nameCoin: "Ethereum",
+    unitCoin: "ETH",
+    quantity: NumberInt("1"),
+    walletAddress: "sdgsdfgsdgsdg",
+    qrCoin: "",
+    userName: "",
+    accountNumber: "0020184431007",
+    bankName: "MBB",
+    binBank: NumberInt("970422"),
+    bankAccount: "NGUYEN TRUNG PHONG",
+    moneyTrade: NumberInt("24000"),
+    transactionFees: NumberInt("456"),
+    oderStatus: NumberInt("1"),
+    tradeStatus: NumberInt("2"),
+    tradingCode: "CWK CD4KB0KC",
+    exchangeRate: "24000",
+    timeCreate: ISODate("2024-07-27T10:58:12.677Z"),
+    timeUpdate: ISODate("2024-07-27T11:08:12.719Z"),
+    timeEnd: ISODate("2024-07-27T11:08:12.69Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("lists").insert([ {
+    _id: ObjectId("66a529c49b78955e4f794c38"),
+    idCoin: "668f92d1bc0e439756637785",
+    nameCoin: "Ethereum",
+    unitCoin: "ETH",
+    quantity: NumberInt("1"),
+    walletAddress: "xcxcvbxcvb",
+    qrCoin: "",
+    userName: "Trung Phong 1999",
+    idUser: "6690e715eddf7ee4ec385cc4",
+    accountNumber: "0020184431007",
+    bankName: "MBB",
+    binBank: NumberInt("970422"),
+    bankAccount: "NGUYEN TRUNG PHONG",
+    moneyTrade: NumberInt("24000"),
+    transactionFees: NumberInt("456"),
+    oderStatus: NumberInt("1"),
+    tradeStatus: NumberInt("3"),
+    tradingCode: "CWK 1NSFFFTV",
+    exchangeRate: "24000",
+    timeCreate: ISODate("2024-07-27T17:09:24.957Z"),
+    timeUpdate: ISODate("2024-07-27T17:09:24.968Z"),
+    timeEnd: ISODate("2024-07-27T17:19:24.964Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("lists").insert([ {
+    _id: ObjectId("66a6889a3398d12d1bfffbfd"),
+    idCoin: "668f92d1bc0e439756637785",
+    nameCoin: "Ethereum",
+    unitCoin: "ETH",
+    quantity: NumberInt("1"),
+    walletAddress: "xcvzxcvzxvzxcv",
+    qrCoin: "",
+    userName: "Phongtb",
+    idUser: "66a6885f3398d12d1bfffbee",
+    accountNumber: "0020184431007",
+    bankName: "MBB",
+    binBank: NumberInt("970422"),
+    bankAccount: "NGUYEN TRUNG PHONG",
+    moneyTrade: NumberInt("24000"),
+    transactionFees: NumberInt("456"),
+    oderStatus: NumberInt("1"),
+    tradeStatus: NumberInt("2"),
+    tradingCode: "CWK 74SDAB3I",
+    exchangeRate: "24000",
+    timeCreate: ISODate("2024-07-28T18:06:18.034Z"),
+    timeUpdate: ISODate("2024-07-28T18:16:18.06Z"),
+    timeEnd: ISODate("2024-07-28T18:16:18.041Z"),
+    __v: NumberInt("0")
+} ]);
+
+// ----------------------------
+// Collection structure for transactions
+// ----------------------------
+db.getCollection("transactions").drop();
+db.createCollection("transactions");
+
+// ----------------------------
+// Documents of transactions
+// ----------------------------
+db.getCollection("transactions").insert([ {
+    _id: ObjectId("66a280a48bb116e34a3e7b71"),
+    userName: "Phong",
+    content: "Mua 1 bitcoin",
+    feedback: "Nhanh, uy tín",
+    time: "1 phút trước",
+    timeCreate: ISODate("2024-07-25T16:43:16.525Z"),
+    timeUpdate: ISODate("2024-07-25T16:43:16.527Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("transactions").insert([ {
+    _id: ObjectId("66a32e0a840318accf9a20aa"),
+    userName: "TrungPhong",
+    content: "Mua 5 ETH từ  MBB",
+    feedback: "nhanh, 5 sao",
+    time: "2 phút trước",
+    timeCreate: ISODate("2024-07-26T05:03:06.118Z"),
+    timeUpdate: ISODate("2024-07-26T05:03:06.121Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("transactions").insert([ {
+    _id: ObjectId("66a67cc73398d12d1bfffba7"),
+    userName: "NhatNam",
+    content: "TienPhongBank » Mua 5 WMZ",
+    feedback: "Quá nhanh, 10đ",
+    time: "Từ 12p trước",
+    timeCreate: ISODate("2024-07-28T17:15:52.049Z"),
+    timeUpdate: ISODate("2024-07-28T17:15:52.065Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("transactions").insert([ {
+    _id: ObjectId("66a67ce33398d12d1bfffbaa"),
+    userName: "DinhTrong",
+    content: "VietComBank » Mua 13 WMZ",
+    feedback: "quá nhanh",
+    time: "Từ 13 trước",
+    timeCreate: ISODate("2024-07-28T17:16:19.025Z"),
+    timeUpdate: ISODate("2024-07-28T17:16:19.026Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("transactions").insert([ {
+    _id: ObjectId("66a67cff3398d12d1bfffbad"),
+    userName: "NamHai",
+    content: "Bán 51.48 WMZ » TechComBank",
+    feedback: "Được, uy tín, nhận tiền ngay sau khi giao dịch",
+    time: "Từ 16p trước",
+    timeCreate: ISODate("2024-07-28T17:16:47.353Z"),
+    timeUpdate: ISODate("2024-07-28T17:16:47.354Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("transactions").insert([ {
+    _id: ObjectId("66a67d1b3398d12d1bfffbb0"),
+    userName: "HaiYen",
+    content: "Bán 130 WMZ » VP Bank",
+    feedback: "Uy tín",
+    time: "Từ 4p trước",
+    timeCreate: ISODate("2024-07-28T17:17:15.194Z"),
+    timeUpdate: ISODate("2024-07-28T17:17:15.195Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("transactions").insert([ {
+    _id: ObjectId("66a67d3a3398d12d1bfffbb3"),
+    userName: "DinhTuong",
+    content: "Bán 60 WMZ » VietComBank",
+    feedback: "good, giao dịch nhanh lẹ .Thank you",
+    time: "Từ 6p trước",
+    timeCreate: ISODate("2024-07-28T17:17:46.064Z"),
+    timeUpdate: ISODate("2024-07-28T17:17:46.065Z"),
+    __v: NumberInt("0")
+} ]);
+db.getCollection("transactions").insert([ {
+    _id: ObjectId("66a67d523398d12d1bfffbb6"),
+    userName: "ThuHuong",
+    content: "Bán 30 WMZ » BIDV",
+    feedback: "Nhanh và uy tín.",
+    time: "Từ 1p trước",
+    timeCreate: ISODate("2024-07-28T17:18:10.608Z"),
+    timeUpdate: ISODate("2024-07-28T17:18:10.608Z"),
+    __v: NumberInt("0")
+} ]);
+
+// ----------------------------
+// Collection structure for users
+// ----------------------------
+db.getCollection("users").drop();
+db.createCollection("users");
+db.getCollection("users").createIndex({
+    username: NumberInt("1")
+}, {
+    name: "username_1",
+    background: true,
+    unique: true
+});
+
+// ----------------------------
+// Documents of users
+// ----------------------------
+db.getCollection("users").insert([ {
+    _id: ObjectId("6690e715eddf7ee4ec385cc4"),
+    username: "Trung Phong 1999",
+    password: "$2a$10$c/WY6BpNoy2DlevqxAVZC.ecywVa1lKPYTheoV9aXx9bH2A/GXzVe",
+    __v: NumberInt("0")
+} ]);
+db.getCollection("users").insert([ {
+    _id: ObjectId("66922c7344a55ea75e3f1209"),
+    username: "trong",
+    password: "$2a$10$RaZgjSHeC2Fna3uH1Wn1beqCxfQ7q9cHfd4BBZHkK1jWbpDyHU.bW",
+    __v: NumberInt("0")
+} ]);
+db.getCollection("users").insert([ {
+    _id: ObjectId("66a3e4b083a4c51c00789f2d"),
+    username: "Phong",
+    password: "$2a$10$NbN9Z5rl58h0QDOl345Q8.rteVu5Z8/EGWDiQlQXHCN2a/kGgf9V6",
+    __v: NumberInt("0")
+} ]);
+db.getCollection("users").insert([ {
+    _id: ObjectId("66a3e4de83a4c51c00789f35"),
+    username: "Phong1999",
+    password: "$2a$10$EYLlaAQTBTDJP8yM4AbOrecAyII2Tw4ssCKmjX5/1SWlgQHCZiDUC",
+    __v: NumberInt("0")
+} ]);
+db.getCollection("users").insert([ {
+    _id: ObjectId("66a60aa7e8b7cb6f319535d7"),
+    username: "Phong199x",
+    password: "$2a$10$/TyYiqRRxJ2rEO1f6B/mQ.k6w48tWwS79F/aib4AEBdz/YrkN7Ljm",
+    __v: NumberInt("0")
+} ]);
+db.getCollection("users").insert([ {
+    _id: ObjectId("66a61ebf396a0eed0c7a71cd"),
+    username: "Trong",
+    password: "$2a$10$bWBLbcmiMVB6bHK70OXdNOjhwLY2F71aTtOOLMiiy57iUz81aC1B.",
+    __v: NumberInt("0")
+} ]);
+db.getCollection("users").insert([ {
+    _id: ObjectId("66a6885f3398d12d1bfffbee"),
+    username: "Phongtb",
+    password: "$2a$10$475xEoWeMOOe1ercym/TOeoVaoMnEf37d4Lbgq8Q5MCipjlRsu38e",
+    __v: NumberInt("0")
+} ]);
+
+// ----------------------------
+// Collection structure for webs
+// ----------------------------
+db.getCollection("webs").drop();
+db.createCollection("webs");
+
+// ----------------------------
+// Documents of webs
+// ----------------------------
+db.getCollection("webs").insert([ {
+    _id: ObjectId("6697fb188f44013ab5c6a15b"),
+    nameWeb: "Coin market",
+    abbreviationName: "CWK",
+    logo: "1721745205266-logo.png",
+    __v: NumberInt("0"),
+    name: "phong 1",
+    copyRight: "Copyright © 2024 webmuaxu.com. All rights reserved",
+    email: "webmuaxu@gmail.com",
+    phone: "0382997999",
+    findNote: "Mã đơn hàng dài 8 ký tự chữ và số, ví dụ: RX9DXXB898, tìm mã đó trong nội dung chuyển khoản ngân hàng của bạn) Lưu ý: chỉ xem được đơn hàng của chính bạn tạo ra.",
+    noteFooter: "Bảo hiểm sàn Webmuaxu",
+    qandaList: [
+        {
+            title: "Tieeu de 1",
+            content: "Noi dung 1",
+            _id: ObjectId("669fdc566892e229d713ad99")
+        },
+        {
+            title: "Feedback",
+            content: "Operation feedback: enable the users to clearly perceive their                                     operations by style updates and interactive effects;",
+            _id: ObjectId("669fdc566892e229d713ad9a")
+        },
+        {
+            title: "Efficiency",
+            content: "Definite and clear: enunciate your intentions clearly so that the                                     users can quickly understand and make decisions;",
+            _id: ObjectId("669fdc566892e229d713ad9b")
+        },
+        {
+            title: "Câu hỏi 4",
+            content: "Nội dung để test",
+            _id: ObjectId("66a13122e7104ef3a363d077")
+        }
+    ],
+    socialNetwork: [
+        {
+            name: "Facebook",
+            url: "https://www.facebook.com/",
+            logo: "1721751726598-coin1.png",
+            _id: ObjectId("669fd8c2611728ee9dabc331")
+        },
+        {
+            name: "Instargram",
+            url: "https://www.facebook.com/",
+            logo: "1721839827791-coin2.png",
+            _id: ObjectId("66a13122e7104ef3a363d079")
+        }
+    ],
+    tradeNote: "Sàn giao dịch Webmuaxu.com - Bảo hiểm 2000$ Verified tại MMO. Hệ thống trao đổi hoàn toàn tự động trong vòng 5s 24/7. Lần đầu mua,vui lòng tham khảo Cảnh Báo Lừa Đảo!!!. Đăng nhập và Xác minh để giao dịch nhận được giá ưu đãi. Hướng dẫn đăng nhập-login.",
+    linkSupportTele: "https://web.telegram.org/k/#@duong_hoangg",
+    contentDialogShow: "Khuyến mãi 10% giá trị nạp tiền bắt đầu từ ngày 01/07/2024 đến 23h59p ngày 05/07/2024. Chúc mọi người tháng 8683 nhé ❤️",
+    imgDialogShow: "1721845348887-RWDCE3j.jpeg",
+    favicon: "1722099603129-anh dep.jpg",
+    titleWeb: "bán xu"
+} ]);

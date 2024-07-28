@@ -1,0 +1,1 @@
+import{c as r}from"./index-QHbb78RQ.js";const o=async()=>{try{return(await r.get("/web")).data}catch(e){throw new Error(e.response.data.message||e.message)}},n=async(e,a)=>{try{return(await r.post(`/web/${e}`,a)).data}catch(s){throw new Error(s.response.data.message||s.message)}};export{n as a,o as l};
