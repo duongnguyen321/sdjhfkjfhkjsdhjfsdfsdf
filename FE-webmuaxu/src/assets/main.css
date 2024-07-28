@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.grecaptcha-badge { visibility: hidden; }
+
+.over {
+    width: 100%;
+}
+
+.container {
+    width: 1200px;
+    min-width: 1200px;
+    margin: 0 auto;
+}
+
+.form__trade {
+    padding: 20px;
+    border: 1px solid #dcdcdc;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, .06);
+    font-size: 13px;
+    background-color: #FFF;
+}
+
+.view__more {
+    border-radius: 4px;
+    border: 1px solid #dcdcdc;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, .06);
+    margin-top: 24px;
+    font-size: 13px;
+    background-color: #FFF;
+}
+
+.head__more {
+    padding: 10px 15px;
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    font-weight: 700;
+}
+
+.over__container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 35px;
+}
+
+.menu__left {
+    width: 300px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form__new {
+    background-color: #FFF;
+    padding: 15px 10px;
+    box-shadow: 0 0 40px -3px rgb(0 0 0 / 20%);
+}
+
+.content {
+    flex-grow: 1;
+}
+
+.content__cmt {
+    padding: 15px;
+    height: 350px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.user__manual {
+    position: relative;
+}
+
+.user__manual:not(:last-child)::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    bottom: 0;
+    left: 0;
+}
+
+.text__manual {
+    padding-left: 15px;
+    position: relative;
+    font-size: 13px;
+}
+
+.text__manual::after {
+    position: absolute;
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 1000px;
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #000;
+}
+
+@media (max-width: 1300px) {
+    .container {
+        width: 90%;
+        min-width: 90%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 1024px) {
+    .over__container {
+        flex-direction: column;
+    }
+
+    .menu__left {
+        width: 100%;
+    }
+}

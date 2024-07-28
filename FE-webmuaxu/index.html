@@ -1,0 +1,76 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mua bán coin</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link id="favicon" rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">Mua bán coin</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import { baseImg } from '@/api/img';
+
+      // Function to get the cookie by name
+      const getCookie = (name) => {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+      };
+
+      // Function to decode URL encoded string
+      const decodeUrlEncodedJson = (encodedStr) => {
+        try {
+          return decodeURIComponent(encodedStr);
+        } catch (e) {
+          console.error('Error decoding URL encoded string:', e);
+          return null;
+        }
+      };
+
+      // Get the 'web' cookie
+      const webCookie = getCookie('web');
+      if (webCookie) {
+        try {
+          // Decode and parse the cookie value
+          const decodedCookie = decodeUrlEncodedJson(webCookie);
+          if (decodedCookie) {
+            const webData = JSON.parse(decodedCookie);
+
+            // Update favicon
+            if (webData.logo) {
+              const faviconElement = document.getElementById('favicon');
+              faviconElement.href = `${baseImg}${webData.favicon}`;
+            }
+
+            // Update title
+            if (webData.nameWeb) {
+              const titleElement = document.getElementById('title');
+              titleElement.textContent = webData.titleWeb;
+            }
+          }
+        } catch (error) {
+          console.error('Error parsing JSON:', error);
+          console.log('Web cookie content:', webCookie);
+        }
+      }
+    </script>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
